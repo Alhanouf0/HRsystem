@@ -1,3 +1,4 @@
 class Target < ApplicationRecord
-    belongs_to :team, foreign_key: "name", :optional => true
+    validates :title, :presence => true
+    belongs_to :team, :optional => true #, foreign_key: "name", 
 end

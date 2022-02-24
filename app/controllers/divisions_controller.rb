@@ -13,6 +13,8 @@ class DivisionsController < ApplicationController
   # GET /divisions/new
   def new
     @division = Division.new
+    @employees = Employee.all
+    @teams = Team.all
   end
 
   # GET /divisions/1/edit
@@ -22,6 +24,8 @@ class DivisionsController < ApplicationController
   # POST /divisions or /divisions.json
   def create
     @division = Division.new(division_params)
+    @employees = Employee.all
+    @teams = Team.all
 
     respond_to do |format|
       if @division.save
@@ -49,12 +53,17 @@ class DivisionsController < ApplicationController
 
   # DELETE /divisions/1 or /divisions/1.json
   def destroy
+    # @team = @division.team_id
+     # @division.team_id.delete(@team)
     @division.destroy
+   
 
     respond_to do |format|
       format.html { redirect_to divisions_url, notice: "Division was successfully destroyed." }
       format.json { head :no_content }
     end
+
+    
   end
 
   private
@@ -65,6 +74,6 @@ class DivisionsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def division_params
-      params.require(:division).permit(:name, :description, :teams, :manager)
+      params.require(:division).permit(:name, :description, :teams, :manager, :team_id, :employee_id)
     end
 end

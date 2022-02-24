@@ -1,4 +1,4 @@
 class Division < ApplicationRecord
-    has_many :team
-    has_one :employee
+    belongs_to :team, :optional => true
+    belongs_to :employee, :optional => true
 end

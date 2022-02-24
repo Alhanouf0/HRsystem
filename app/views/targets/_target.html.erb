@@ -1,32 +1,26 @@
-<div id="<%= dom_id target %>">
-  <p>
-    <strong>Title:</strong>
+<tr id="<%= dom_id target %>">
+  <td>
     <%= target.title %>
-  </p>
+  </td>
 
-  <p>
-    <strong>Description:</strong>
+  <td>
     <%= target.description %>
-  </p>
+  </td>
 
-  <p>
-    <strong>Start date:</strong>
+  <td>
     <%= target.start_date %>
-  </p>
+  </td>
 
-  <p>
-    <strong>Finish date:</strong>
+  <td>
     <%= target.finish_date %>
-  </p>
+  </td>
 
-  <p>
-    <strong>Team:</strong>
-    <%= target.team %>
-  </p>
+  <td>
+    <%= target.team.name %>
+  </td>
 
-  <p>
-    <strong>Status:</strong>
+  <td>
     <%= target.status %>
-  </p>
+  </td>
 
-</div>
+</tr>

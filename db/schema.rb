@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_02_05_185640) do
+ActiveRecord::Schema.define(version: 2022_02_24_104705) do
 
   create_table "divisions", force: :cascade do |t|
     t.string "name"
@@ -19,6 +19,10 @@ ActiveRecord::Schema.define(version: 2022_02_05_185640) do
     t.string "manager"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "employee_id"
+    t.integer "team_id"
+    t.index ["employee_id"], name: "index_divisions_on_employee_id"
+    t.index ["team_id"], name: "index_divisions_on_team_id"
   end
 
   create_table "employees", force: :cascade do |t|
@@ -29,6 +33,8 @@ ActiveRecord::Schema.define(version: 2022_02_05_185640) do
     t.string "employment"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "team_id"
+    t.index ["team_id"], name: "index_employees_on_team_id"
   end
 
   create_table "targets", force: :cascade do |t|
@@ -40,6 +46,8 @@ ActiveRecord::Schema.define(version: 2022_02_05_185640) do
     t.string "status"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "team_id", null: false
+    t.index ["team_id"], name: "index_targets_on_team_id"
   end
 
   create_table "teams", force: :cascade do |t|
@@ -49,14 +57,24 @@ ActiveRecord::Schema.define(version: 2022_02_05_185640) do
     t.string "leader"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "division_id"
+    t.integer "employee_id"
+    t.index ["division_id"], name: "index_teams_on_division_id"
+    t.index ["employee_id"], name: "index_teams_on_employee_id"
   end
 
   create_table "users", force: :cascade do |t|
-    t.string "anme"
-    t.string "email"
-    t.string "password"
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at", precision: 6
+    t.datetime "remember_created_at", precision: 6
+    t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "targets", "teams"
 end

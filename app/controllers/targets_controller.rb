@@ -13,6 +13,7 @@ class TargetsController < ApplicationController
   # GET /targets/new
   def new
     @target = Target.new
+    @teams = Team.all
   end
 
   # GET /targets/1/edit
@@ -22,6 +23,7 @@ class TargetsController < ApplicationController
   # POST /targets or /targets.json
   def create
     @target = Target.new(target_params)
+    @teams = Team.all
 
     respond_to do |format|
       if @target.save
@@ -65,6 +67,6 @@ class TargetsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def target_params
-      params.require(:target).permit(:title, :description, :start_date, :finish_date, :team, :status)
+      params.require(:target).permit(:title, :description, :start_date, :finish_date, :team, :status, :team_id)
     end
 end

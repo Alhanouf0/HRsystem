@@ -1,15 +1,50 @@
-<p style="color: green"><%= notice %></p>
+<head>
+<h1>Targets</h1>
+<style>
+#target {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#target td, #target th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#target tr:nth-child(even){background-color: #f2f2f2;}
+
+#target tr:hover {background-color: #ddd;}
+
+#target th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: rgb(139, 60, 166);
+  color: white;
+}
+</style>
+</head>
 
 <h1>Targets</h1>
 
-<div id="targets">
+<table id = "target">
+<tr>
+    <th> title </th>
+    <th> describtion </th>
+    <th> start date</th>
+    <th> finish date </th>
+    <th> team </th>
+    <th> status </th>
+</tr>
+<div>
   <% @targets.each do |target| %>
     <%= render target %>
-    <p>
-      <%= link_to "Show this target", target %>
-    </p>
+    <td>
+      <%= link_to "actions", target %>
+    </td>
   <% end %>
 </div>
-
+</table>
 <%= link_to "New target", new_target_path %>
 <a href="/">homepage</a>

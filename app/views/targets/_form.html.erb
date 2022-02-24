@@ -32,8 +32,8 @@
   </div>
 
   <div>
-    <%= form.label :team, style: "display: block" %>
-    <%= form.text_field :team %>
+    <%= form.label :team_id, style: "display: block" %>
+    <%= form.select :team_id, options_for_select(@teams.map{|u| [u.name, u.id]}, @target.team_id), {:prompt => "Select Role"}%> <!--drop down menu to select team_id -->
   </div>
 
   <div>
