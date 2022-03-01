@@ -1,14 +1,43 @@
-<p style="color: green"><%= notice %></p>
-
 <h1>Teams</h1>
+<style>
+#team {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
 
-<div id="teams">
+#team td, #team th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#team tr:nth-child(even){background-color: #f2f2f2;}
+
+#team tr:hover {background-color: #ddd;}
+
+#team th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: rgb(139, 60, 166);
+  color: white;
+}
+</style>
+</head>
+<table id="team">
+<tr><th> Name </th>
+    <th> Description </th>
+    <th> Members </th>
+    <th> Leder </th>
+</tr>
+<div>
   <% @teams.each do |team| %>
     <%= render team %>
-    <p>
-      <%= link_to "Show this team", team %>
-    </p>
+    <td>
+      <%= link_to "actions", team %>
+    </td>
   <% end %>
 </div>
-
+</table>
 <%= link_to "New team", new_team_path %>
+<a href="/">homepage</a>

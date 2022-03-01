@@ -23,12 +23,14 @@
 
   <div>
     <%= form.label :members, style: "display: block" %>
-    <%= form.text_field :members %>
+    <% all_emp = Employee.all %>
+    <%= form.select :members, options_for_select(all_emp.map{|u| [u.name, u.id]}, @team.employee_id) %>
   </div>
 
+
   <div>
-    <%= form.label :leader, style: "display: block" %>
-    <%= form.text_field :leader %>
+    <%= form.label "leader ", style: "display: block" %>
+    <%= form.select :employee_id, options_for_select(@employees.map{|u| [u.name, u.id]}, @team.employee_id), {:prompt => "Select leader"}%> <!--drop down menu to select team_id -->
   </div>
 
   <div>

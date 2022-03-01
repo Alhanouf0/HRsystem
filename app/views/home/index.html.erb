@@ -1,0 +1,24 @@
+<style>
+h1 {text-align: center;}
+body {
+    text-align: center;
+    background-color: rgb(189, 71, 71);
+}
+
+</style>
+
+<h1>HR System</h1>
+<body>
+<div>
+<button> <%= link_to "Users", 'users#index' %> </button> 
+<button> <%= link_to "Employees", employees_path %> </button> 
+<button> <%= link_to "Teams", teams_path %> </button> 
+<button> <%= link_to "Targets", targets_path %> </button> 
+<button> <%= link_to "Divisions", divisions_path %> </button> 
+<%= button_to "logout", destroy_user_session_path, method: :delete  %>
+<button> <%= link_to "Login", user_session_path %> </button>
+</div>
+</body>
+<!-- 
+<a href="http://stackoverflow.com"><button>Link Text</button></a>
+-->

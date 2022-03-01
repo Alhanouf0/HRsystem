@@ -1,14 +1,51 @@
-<p style="color: green"><%= notice %></p>
 
 <h1>Employees</h1>
+<style>
+#employee {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
 
-<div id="employees">
-  <% @employees.each do |employee| %>
+#employee td, #employee th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#employee tr:nth-child(even){background-color: #f2f2f2;}
+
+#employee tr:hover {background-color: #ddd;}
+
+#employee th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: rgb(139, 60, 166);
+  color: white;
+}
+</style>
+</head>
+<table id= "employee">
+<tr> <th> <%= link_to "Name", :sort => "name" %> </th>
+      <th> Email </th>
+      <th> <%= link_to "Job", :sort => "job" %> </th>
+      <th> <%= link_to "Salary", :sort => "salary" %> </th>
+      <th> Employment status </th>
+      <th> <p>team ID</p> </th>
+ </tr>
+<div>
+  <% @employees_sorted.each do |employee| %>
     <%= render employee %>
-    <p>
-      <%= link_to "Show this employee", employee %>
+  <td>
+  <p>
+      <%= link_to "actions", employee %>
     </p>
+  </td>
+    
   <% end %>
 </div>
-
+</table>
 <%= link_to "New employee", new_employee_path %>
+
+
+<a href="/">homepage</a>
