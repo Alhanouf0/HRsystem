@@ -1,0 +1,8 @@
+<h1>Users</h1>
+<% @users.each do |user| %>
+  <%= user.name %><br/>
+  <%= user.email %><br/>
+  <% if user.cover.attached? %>
+  <%= image_tag(user.cover,size: "200x200")%>
+  <%end%>
+<% end %>

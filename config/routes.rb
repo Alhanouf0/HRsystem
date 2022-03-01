@@ -1,10 +1,18 @@
 Rails.application.routes.draw do
-  devise_for :users
+  #get 'users/index'
+  devise_for :users, :path_prefix => 'd'
+  resources :users, :only =>[:show]
+
   get 'home/index'
   resources :divisions
   resources :targets
   resources :teams
   resources :employees
+
+  match '/users',   to: 'users#index',   via: 'get'
+  match '/users/:id',     to: 'users#show',       via: 'get'
+
+
   root :to => "home#index"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
