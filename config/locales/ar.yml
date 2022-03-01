@@ -1,0 +1,16 @@
+ar:
+  Home:
+      index:
+            HR System: "نظام الموارد البشرية"
+            users: "المستخدمين"
+            employees: "الموظفين"
+            teams: "الفرق"
+            targets: "الاهداف"
+            divisions: "الاقسام"
+            login: "دخول"
+            logout: "خروج"
+  User:
+  Team:
+  Employee:
+  Target:
+  Division:

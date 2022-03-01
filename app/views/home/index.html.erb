@@ -1,24 +1,40 @@
 <style>
 h1 {text-align: center;}
 body {
-    text-align: center;
+    
     background-color: rgb(189, 71, 71);
 }
+div.trans {position: absolute; top:1px; left:1px}
+
+div.dep {text-align: center;}
+
+div.log {position: absolute; top:1px; right:1px}
+
+#login {right:1px}
+#logout{float: left;}
 
 </style>
-
-<h1>HR System</h1>
-<body>
-<div>
-<button> <%= link_to "Users", 'users#index' %> </button> 
-<button> <%= link_to "Employees", employees_path %> </button> 
-<button> <%= link_to "Teams", teams_path %> </button> 
-<button> <%= link_to "Targets", targets_path %> </button> 
-<button> <%= link_to "Divisions", divisions_path %> </button> 
-<%= button_to "logout", destroy_user_session_path, method: :delete  %>
-<button> <%= link_to "Login", user_session_path %> </button>
 </div>
+</div class="trans">
+    <%= link_to 'English', root_path(locale: :en) %>
+<%= link_to 'العربية', root_path(locale: :ar) %>
+</div>
+
+<div class="log">
+    <p id="login"><button> <%= link_to t('Home.index.login'), user_session_path %> </button></p>
+    <p id="logout"><%= button_to t('Home.index.logout'), destroy_user_session_path, method: :delete  %> </p>
+    
+</div>
+
+<h1><%= t 'Home.index.HR System', default: 'no ', style: "display: block" %></h1>
+<body>
+    <div class="dep">
+    <button> <%= link_to t('Home.index.users'), 'users#index' %> </button> 
+    <button> <%= link_to t('Home.index.employees'), employees_path %> </button> 
+    <button> <%= link_to t('Home.index.teams'), teams_path %> </button> 
+    <button> <%= link_to t('Home.index.targets'), targets_path %> </button> 
+    <button> <%= link_to t('Home.index.divisions'), divisions_path %> </button> 
+    
+
+
 </body>
-<!-- 
-<a href="http://stackoverflow.com"><button>Link Text</button></a>
--->
