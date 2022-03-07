@@ -1,6 +1,15 @@
 <head>
-<h1>Targets</h1>
 <style>
+
+.header {
+  padding: 10px;
+  text-align: center;
+  background: rgb(204, 255, 204);
+  color: rgb(0, 77, 0);
+  font-size: 30px;
+}
+h1 {text-align: center;}
+
 #target {
   font-family: Arial, Helvetica, sans-serif;
   border-collapse: collapse;
@@ -21,30 +30,97 @@
   padding-bottom: 12px;
   text-align: left;
   background-color: rgb(139, 60, 166);
-  color: white;
+  color: white;}
+
+div.dep {text-align: center;}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: rgb(49, 104, 49);
 }
+
+
+li {float: left;}
+
+.lol {
+  display: block;
+  color: black;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;}
+
+.sideUl {background-color: white;}
+
+.sideUl li { display: block;
+            text-decoration: none;}
+
+footer {text-align: center;}
+
 </style>
 </head>
+<div class="header">
+<h1><%= t 'Home.index.targets'%></h1>
+</div>
 
-<h1>Targets</h1>
+<div class="dep">
+    <ul>
+    <li><button id="openNav" class="w3-button w3-teal w3-xlarge" onclick="w3_open()">&#9776;</button></li>
+        <li> <%= link_to t('Home.index.users'), 'users#index', :class => "lol" %>  </li>
+        <li> <%= link_to t('Home.index.employees'), employees_path, :class => "lol" %>  </li>
+        <li> <%= link_to t('Home.index.teams'), teams_path, :class => "lol" %>  </li>
+       <li>  <%= link_to t('Home.index.targets'), targets_path, :class => "lol" %>  </li>
+        <li> <%= link_to t('Home.index.divisions'), divisions_path, :class => "lol" %></li>
+        
+    </ul>
+  </div>
 
+  <div class="w3-sidebar w3-bar-block w3-card w3-animate-left" style="display:none" id="mySidebar">
+  <button class="w3-bar-item w3-button w3-large"
+  onclick="w3_close()">Close &times;</button>
+  <ul class="sideUl">
+  <li><%= link_to "New target", new_target_path %></li> <br>
+  <li><a href="/">homepage</a></li>
+  </ul>
+</div>
+
+<div id="main">
 <table id = "target">
 <tr>
-    <th> title </th>
-    <th> describtion </th>
-    <th> start date</th>
-    <th> finish date </th>
-    <th> team </th>
-    <th> status </th>
+    <th> <%= t 'Target.index.title' %> </th>
+    <th> <%= t 'Target.index.description' %> </th>
+    <th> <%= t 'Target.index.start date' %></th>
+    <th> <%= t 'Target.index.finish date' %> </th>
+    <th> <%= t 'Target.index.team id' %> </th>
+    <th> <%= t 'Target.index.status' %> </th>
 </tr>
 <div>
   <% @targets.each do |target| %>
     <%= render target %>
     <td>
-      <%= link_to "actions", target %>
+      <%= link_to t('Home.index.actions'), target %>
     </td>
   <% end %>
 </div>
 </table>
-<%= link_to "New target", new_target_path %>
-<a href="/">homepage</a>
+
+<footer>
+  <p>Copyright @ 2022 - Sprints - author: Alhanouf</p>
+</footer>
+</div>
+
+<script>
+function w3_open() {
+  document.getElementById("main").style.marginLeft = "20%";
+  document.getElementById("mySidebar").style.width = "20%";
+  document.getElementById("mySidebar").style.display = "block";
+  document.getElementById("openNav").style.display = 'none';
+}
+function w3_close() {
+  document.getElementById("main").style.marginLeft = "0%";
+  document.getElementById("mySidebar").style.display = "none";
+  document.getElementById("openNav").style.display = "inline-block";
+}
+</script>

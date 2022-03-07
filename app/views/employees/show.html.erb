@@ -4,6 +4,6 @@
 
 <div>
   <%= link_to "Back to employees", employees_path %>
-
+  <%= link_to "Edit this employee", edit_employee_path(@employee) %>
   <%= button_to "Delete employee", @employee, method: :delete %>
 </div>

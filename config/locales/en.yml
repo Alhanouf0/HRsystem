@@ -30,4 +30,18 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+    Home:
+      index:
+            HR System: "HR System"
+    User:
+      index:
+            new user: "new user"
+            name: "name"
+            email: "email"
+            password: "password"
+            confirm password: "confirm password"
+            cover: "cover"
+    Team:
+    Employee:
+    Target:
+    Division:

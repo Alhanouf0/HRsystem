@@ -18,11 +18,13 @@ class TeamsController < ApplicationController
 
   # GET /teams/1/edit
   def edit
+    @employees = Employee.all
   end
 
   # POST /teams or /teams.json
   def create
     @team = Team.new(team_params)
+    @employees = Employee.all
 
     respond_to do |format|
       if @team.save

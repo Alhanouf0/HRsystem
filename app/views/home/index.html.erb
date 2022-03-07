@@ -1,24 +1,70 @@
 <style>
+.header {
+  padding: 10px;
+  text-align: center;
+  background: rgb(204, 255, 204);
+  color: rgb(0, 77, 0);
+  
+}
 h1 {text-align: center;}
 body {
-    text-align: center;
-    background-color: rgb(189, 71, 71);
+    
+    background-color: rgb(204, 255, 204);
 }
+div.trans {position: absolute; top:1px; left:1px}
+
+div.dep {text-align: center;}
+
+div.log {position: absolute; top:1px; right:1px}
+
+#inline {display: inline-block;}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: rgb(49, 104, 49);
+}
+
+li {float: left;}
+
+.lol {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;}
+/* div.dep button {width:80px; height:80px} */
 
 </style>
 
-<h1>HR System</h1>
-<body>
-<div>
-<button> <%= link_to "Users", 'users#index' %> </button> 
-<button> <%= link_to "Employees", employees_path %> </button> 
-<button> <%= link_to "Teams", teams_path %> </button> 
-<button> <%= link_to "Targets", targets_path %> </button> 
-<button> <%= link_to "Divisions", divisions_path %> </button> 
-<%= button_to "logout", destroy_user_session_path, method: :delete  %>
-<button> <%= link_to "Login", user_session_path %> </button>
+<div class="header">
+        <div class="trans">
+            <%= link_to 'English', root_path(locale: :en) %>
+            <%= link_to 'العربية', root_path(locale: :ar) %>
+        </div>
+
+        <div class="log">
+            <div id="inline"><button> <%= link_to t('Home.index.login'), user_session_path %> </button></div>
+            <div id="inline"><%= button_to t('Home.index.logout'), destroy_user_session_path, method: :delete  %> </div>
+            
+        </div>
+
+        <h1><%= t 'Home.index.HR System', default: 'no ', style: "display: block" %></h1>
 </div>
+
+<body>
+    <div class="dep">
+    <ul>
+        <li> <%= link_to t('Home.index.users'), 'users#index', :class => "lol" %>  </li>
+        <li> <%= link_to t('Home.index.employees'), employees_path, :class => "lol" %>  </li>
+        <li> <%= link_to t('Home.index.teams'), teams_path, :class => "lol" %>  </li>
+       <li>  <%= link_to t('Home.index.targets'), targets_path, :class => "lol" %>  </li>
+        <li> <%= link_to t('Home.index.divisions'), divisions_path, :class => "lol" %></li>
+    </ul>
+
+<footer>
+  <p>Copyright @ 2022 - Sprints - author: Alhanouf</p>
+</footer>
 </body>
-<!-- 
-<a href="http://stackoverflow.com"><button>Link Text</button></a>
--->
