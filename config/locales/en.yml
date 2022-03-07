@@ -34,6 +34,13 @@ en:
       index:
             HR System: "HR System"
     User:
+      index:
+            new user: "new user"
+            name: "name"
+            email: "email"
+            password: "password"
+            confirm password: "confirm password"
+            cover: "cover"
     Team:
     Employee:
     Target:

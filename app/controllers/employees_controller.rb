@@ -21,6 +21,7 @@ class EmployeesController < ApplicationController
   # GET /employees/1/edit
   def edit
     @employee = Employee.find(params[:id])
+    @teams = Team.all
   end
 
   # POST /employees or /employees.json

@@ -6,5 +6,7 @@ class Employee < ApplicationRecord
     has_one :division #, foreign_key: "name", :optional => true
     has_one :team
 
+    accepts_nested_attributes_for :team
+
     
 end

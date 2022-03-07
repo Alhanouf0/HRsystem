@@ -1,4 +1,10 @@
 ar:
+  globals:
+      forms:
+            messages:
+                  errors:
+                        one error: "يوجد خطأ"
+                        multi errors: "%{count} يوجد العديد من الاخطاء"
   Home:
       index:
             HR System: "نظام الموارد البشرية"
@@ -9,8 +15,51 @@ ar:
             divisions: "الاقسام"
             login: "دخول"
             logout: "خروج"
+            actions: "عمليات"
+            homepage: "الصفحة الرئيسية"
   User:
+      index:
+            new user: "مستخدم جديد"
+            name: "الاسم"
+            email: "البريد الالكتروني"
+            password: "كلمة السر"
+            confirm password: "تأكيد كلمة السر"
+            cover: "الغلاف"
+            remember me: "تذكرني"
+            sign up: "تسجيل"
+            sign up page: "التسجيل"
+            login: "تسجيل الدخول"
   Team:
+      index:
+            name: "الأسم"
+            describtion: "الوصف"
+            members: "الآعضاء"
+            leader: "القائد"
+
   Employee:
+      index:
+            name: "الأسم"
+            email: "البريد الالكتروني"
+            job: "الوظيفة"
+            salary: "الراتب"
+            employment: "الحالة الوظيفية"
+            team id: "معرف الفريق"
   Target:
+      index:
+            title: "العنوان"
+            description: "الوصف"
+            start date: "تاريخ البدء"
+            finish date: "تاريخ الإنتهاء"
+            team id: "معرف الفريق"
+            status: "الحالة"
   Division:
+          index:
+                name: "الأسم"
+                description: "الوصف"
+                teams: "الفرق"
+                manager: "المدير"
+                new division: "قسم جديد"
+                team id: "تعريف الفريق"
+
+
+

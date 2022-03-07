@@ -12,22 +12,22 @@
   <% end %>
 
   <div>
-    <%= form.label :name, style: "display: block" %>
+    <%= form.label t('Division.index.name'), style: "display: block" %>
     <%= form.text_field :name %>
   </div>
 
   <div>
-    <%= form.label :description, style: "display: block" %>
+    <%= form.label t('Division.index.description'), style: "display: block" %>
     <%= form.text_field :description %>
   </div>
 
   <div>
-    <%= form.label "Teams ", style: "display: block" %>
+    <%= form.label t('Division.index.teams'), style: "display: block" %>
     <%= form.select :team_id, options_for_select(@teams.map{|u| [u.name, u.id]}, @division.team_id), {:prompt => "Select Teams"}%> <!--drop down menu to select team_id -->
   </div>
 
   <div>
-    <%= form.label "manager ", style: "display: block" %>
+    <%= form.label t('Division.index.manager'), style: "display: block" %>
     <%= form.select :employee_id, options_for_select(@employees.map{|u| [u.name, u.id]}, @division.employee_id), {:prompt => "Select Manager"}%> <!--drop down menu to select team_id -->
   </div>
 
