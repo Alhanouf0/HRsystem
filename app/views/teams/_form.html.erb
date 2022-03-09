@@ -1,3 +1,6 @@
+
+<div class="row mb-3">
+
 <%= form_with(model: team) do |form| %>
   <% if team.errors.any? %>
     <div style="color: red">
@@ -13,7 +16,7 @@
   <% end %>
 
   <div>
-    <%= form.label t('ُTeam.index.name'), style: "display: block" %>
+    <%= form.label :name, style: "display: block" %>
     <%= form.text_field :name %>
   </div>
 
@@ -25,16 +28,22 @@
   <div>
     <%= form.label t('Team.index.members'), style: "display: block" %>
     <% all_emp = Employee.all %>
-    <%= form.select :members, options_for_select(all_emp.map{|u| [u.name, u.id]}, @team.employee_id) %>
+    <%= form.select :members, options_for_select(all_emp.map{|u| [u.name, u.id]}, @team.employee_id), {:prompt => "Select members"} %>
   </div>
 
 
   <div>
-    <%= form.label t 'Team.index.leader', style: "display: block" %>
+    <%= form.label t 'Team.index.leader', style: "display: block" %> <br>
     <%= form.select :employee_id, options_for_select(@employees.map{|u| [u.name, u.id]}, @team.employee_id), {:prompt => "Select leader"}%> <!--drop down menu to select team_id -->
   </div>
 
   <div>
-    <%= form.submit %>
+    <%= form.label "Division", style: "display: block" %> <br>
+    <%= form.select :division_id, options_for_select(@division.map{|u| [u.name, u.id]}, @team.division_id), {:prompt => "Select division"}%>
+  </div>
+  <div>
+    <%= form.submit :submit, class:"btn btn-primary" %>
   </div>
 <% end %>
+</div>
+

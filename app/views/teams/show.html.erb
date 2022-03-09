@@ -1,10 +1,18 @@
+<style>
+#be {color: white;}
+.lol {color: white;}
+</style>
+
+<div class="container">
 <p style="color: green"><%= notice %></p>
 
 <%= render @team %>
 
-<div>
-  |
-  <%= link_to "Back to teams", teams_path %>
-<%= link_to "Edit this team", edit_team_path(@team) %> 
-  <%= button_to "Destroy this team", @team, method: :delete %>
+<div id="be">
+  
+  <button class="btn btn-primary"><%= link_to "Back to teams", teams_path, :class => "lol"  %> </button>
+ <button class="btn btn-primary"> <%= link_to "Edit this team", edit_team_path(@team), :class => "lol"  %> </button>
+  <%= button_to "Destroy this team", @team, class:"btn btn-primary" ,method: :delete %>
+</div>
+
 </div>

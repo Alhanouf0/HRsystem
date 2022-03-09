@@ -14,6 +14,7 @@ class TeamsController < ApplicationController
   def new
     @team = Team.new
     @employees = Employee.all
+    @division = Division.all
   end
 
   # GET /teams/1/edit
@@ -25,6 +26,7 @@ class TeamsController < ApplicationController
   def create
     @team = Team.new(team_params)
     @employees = Employee.all
+    @division = Division.all
 
     respond_to do |format|
       if @team.save
@@ -68,6 +70,6 @@ class TeamsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def team_params
-      params.require(:team).permit(:name, :describtion, :members, :employee_id)
+      params.require(:team).permit(:name, :describtion, :members, :leader, :employee_id, :division_id)
     end
 end

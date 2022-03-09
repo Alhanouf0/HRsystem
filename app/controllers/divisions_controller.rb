@@ -14,7 +14,7 @@ class DivisionsController < ApplicationController
   def new
     @division = Division.new
     @employees = Employee.all
-    @teams = Team.all
+    # @teams = Team.all
   end
 
   # GET /divisions/1/edit
@@ -25,7 +25,7 @@ class DivisionsController < ApplicationController
   def create
     @division = Division.new(division_params)
     @employees = Employee.all
-    @teams = Team.all
+    # @teams = Team.all
 
     respond_to do |format|
       if @division.save

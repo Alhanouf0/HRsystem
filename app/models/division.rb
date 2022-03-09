@@ -1,4 +1,5 @@
 class Division < ApplicationRecord
-    belongs_to :team, :optional => true
+    has_many :teams, :dependent => :destroy
     belongs_to :employee, :optional => true
+
 end

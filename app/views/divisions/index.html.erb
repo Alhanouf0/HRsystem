@@ -3,12 +3,11 @@
 .header {
   padding: 10px;
   text-align: center;
-  background: rgb(204, 255, 204);
   color: rgb(0, 77, 0);
   font-size: 30px;
 }
 h1 {text-align: center;}
-#division {
+/* #division {
   font-family: Arial, Helvetica, sans-serif;
   border-collapse: collapse;
   width: 100%;
@@ -29,11 +28,11 @@ h1 {text-align: center;}
   text-align: left;
   background-color: rgb(125, 191, 125);
   color: white;
-}
+} */
 
 div.dep {text-align: center;}
 
-ul {
+/* ul {
   list-style-type: none;
   margin: 0;
   padding: 0;
@@ -41,11 +40,11 @@ ul {
   background-color: rgb(49, 104, 49);
 }
 
-li {float: left;}
+li {float: left;} */
 
 .lol {
   display: block;
-  color: black;
+  color: white;
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;}
@@ -55,34 +54,14 @@ li {float: left;}
 .sideUl li { display: block;
             text-decoration: none;}
 
-footer {text-align: center;}
+
+
 </style>
 </head>
-<div class="header">
-<h1><%= t 'Home.index.divisions'%></h1>
-</div>
- <div class="dep">
-    <ul>
-        <li><button id="openNav" class="w3-button w3-teal w3-xlarge" onclick="w3_open()">&#9776;</button></li>
-        <li> <%= link_to t('Home.index.users'), 'users#index', :class => "lol" %>  </li>
-        <li> <%= link_to t('Home.index.employees'), employees_path, :class => "lol" %>  </li>
-        <li> <%= link_to t('Home.index.teams'), teams_path, :class => "lol" %>  </li>
-       <li>  <%= link_to t('Home.index.targets'), targets_path, :class => "lol" %>  </li>
-        <li> <%= link_to t('Home.index.divisions'), divisions_path, :class => "lol" %></li>
-    </ul>
-  </div>
-  
-  <div class="w3-sidebar w3-bar-block w3-card w3-animate-left" style="display:none" id="mySidebar">
-  <button class="w3-bar-item w3-button w3-large"
-  onclick="w3_close()">Close &times;</button>
-  <ul class="sideUl">
-  <li><%= link_to t('Division.index.new division'), new_division_path %></li> <br>
-  <li><a href="/">homepage</a></li>
-  </ul>
-</div>
+
 
 <div id="main">
-<table id ="division">
+<table class="table table-striped">
 <tr><th> <%= t 'Division.index.name', default: 'no ', style: "display: block" %> </th>
     <th> <%= t 'Division.index.description', default: 'no ', style: "display: block" %> </th>
     <th> <%= t 'Division.index.team id', default: 'no ', style: "display: block" %></th>
@@ -97,21 +76,7 @@ footer {text-align: center;}
   <% end %>
 </div>
 </table>
+<li><%= link_to "New Division", new_division_path%></li><br>
 
-<footer>
-  <p>Copyright @ 2022 - Sprints - author: Alhanouf</p>
-</footer>
 </div>
-<script>
-function w3_open() {
-  document.getElementById("main").style.marginLeft = "20%";
-  document.getElementById("mySidebar").style.width = "20%";
-  document.getElementById("mySidebar").style.display = "block";
-  document.getElementById("openNav").style.display = 'none';
-}
-function w3_close() {
-  document.getElementById("main").style.marginLeft = "0%";
-  document.getElementById("mySidebar").style.display = "none";
-  document.getElementById("openNav").style.display = "inline-block";
-}
-</script>
+
