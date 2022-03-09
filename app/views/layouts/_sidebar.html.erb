@@ -1,0 +1,15 @@
+<html>
+<title>W3.CSS</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<body>
+<div class="w3-sidebar w3-bar-block w3-large" style="height:40%">
+
+        <a class="w3-bar-item w3-button w3-hover-black" <%= link_to t('Home.index.users'), 'users#index', :class => "nav-link" %></a>
+        <a class="w3-bar-item w3-button w3-hover-black" <%= link_to t('Home.index.employees'), employees_path, :class => "nav-link" %> </a>
+        <a class="w3-bar-item w3-button w3-hover-black"<%= link_to t('Home.index.teams'), teams_path, :class => "nav-link" %> </a>
+         <a class="w3-bar-item w3-button w3-hover-black" <%= link_to t('Home.index.targets'), targets_path, :class => "nav-link" %> </a>
+        <a class="w3-bar-item w3-button w3-hover-black"<%= link_to t('Home.index.divisions'), divisions_path, :class => "nav-link" %> </a>
+</div>
+
+<div style="margin-left:20%">
