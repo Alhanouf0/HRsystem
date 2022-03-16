@@ -1,9 +1,13 @@
+<style>
+#be {color: white;}
+.lol {color: white;}
+</style>
 <p style="color: green"><%= notice %></p>
 
 <%= render @division %>
 
 <div>
-  <%= link_to "Back to divisions", divisions_path %>
+  <button class="btn btn-primary"><%= link_to "Back to divisions", divisions_path, :class => "lol"  %> </button>
 
-  <%= button_to "Destroy this division", @division, method: :delete %>
+  <%= button_to "Destroy this division", @division,class:"btn btn-primary", method: :delete %>
 </div>

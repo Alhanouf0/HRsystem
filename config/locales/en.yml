@@ -30,18 +30,65 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 en:
-    Home:
+  globals:
+      forms:
+            messages:
+                  errors:
+                        one error: "There is one error"
+                        multi errors: "%{count} errors"
+  Home:
       index:
             HR System: "HR System"
-    User:
+            users: "Users"
+            employees: "Employees"
+            teams: "Teams"
+            targets: "Targets"
+            divisions: "Divisions"
+            login: "Login"
+            logout: "Logout"
+            actions: "actions"
+            homepage: "Homepage "
+  User:
       index:
-            new user: "new user"
-            name: "name"
-            email: "email"
+            new user: "new user "
+            name: "Name"
+            email: "Email"
             password: "password"
-            confirm password: "confirm password"
+            confirm password: "password confirmation"
             cover: "cover"
-    Team:
-    Employee:
-    Target:
-    Division:
+            remember me: "remember me"
+            sign up: "sign up"
+            sign up page: "sign up page"
+            login: "login"
+  Team:
+      index:
+            name: "Name"
+            describtion: "Description"
+            members: "Members"
+            leader: "Leader"
+  Employee:
+        index:
+              name: "Name"
+              email: "Email"
+              job: "Job"
+              salary: "Salary"
+              employment: "Employement status"
+              team id: "Team ID"
+  Target:
+      index:
+            title: "Title"
+            description: "Description"
+            start date: "Start date"
+            finish date: "Finish date"
+            team id: " Team ID"
+            status: "Status"
+  Division:
+          index:
+                name: "Name"
+                description: "Description"
+                teams: "Teams"
+                manager: "Manager"
+                new division: "New Division"
+                team id: "Team ID"
+
+  

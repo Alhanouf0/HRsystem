@@ -1,3 +1,5 @@
+<div class="container">
+<div class="row mb-3">
 <h2><%= t 'User.index.sign up page', default: 'no ', style: "display: block" %></h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
@@ -32,8 +34,11 @@
   </div>
 
   <div class="actions">
-    <%= f.submit t('User.index.sign up') %>
+    <%= f.submit t('User.index.sign up'), class:"btn btn-primary"  %>
   </div>
 <% end %>
 
 <%= render "devise/shared/links" %>
+
+</div>
+</div>
